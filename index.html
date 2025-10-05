@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oğuzz Şevik | Portföy</title>
+  
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  
+ 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
+  <link rel="stylesheet" href="ogi.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Oğuz Rahmet Şevik</h1>
+    <nav>
+      <a href="#projects">Projeler</a>
+      <a href="#blog">Blog</a>
+      <a href="#about">Hakkımda</a>
+      <a href="#contact">İletişim</a>
+    </nav>
+    <!-- dark mode butonu  -->
+    <div class="theme-switch-wrapper">
+      <label class="theme-switch">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider round"></span>
+      </label>
+      <i id="theme-icon" class="fa-solid fa-moon"></i>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h2>Merhaba, ben Oğuzz 👋</h2>
+    <p>Web geliştirme ve yazılım üzerine projeler & yazılar paylaşıyorum.</p>
+    <a href="#projects" class="btn"><i class="fa-solid fa-laptop-code"></i> Projelerime Göz At</a>
+  </section>
+
+  
+  <section id="projects" class="section">
+    <h2>Projeler</h2>
+    <div class="cards">
+      <div class="card" onclick="window.open('https://sprxogzz.github.io/taskagitmakas/', '_blank')">
+  <h3><i class="fa-solid fa-gamepad"></i> Taş Kağıt Makas Oyunu</h3>
+  <p> <strong>Taş-Kağıt-Makas</strong> oyunu.</p>
+  <div class="tech-stack">
+    <span>HTML</span>
+    <span>CSS</span>
+    <span>JavaScript</span>
+  </div>
+</div>
+
+      <div class="card" onclick="window.open('https://github.com/sprXogzz/ytvideodownloader', '_blank')">
+  <h3><i class="fa-solid fa-circle-down"></i> YouTube Video Downloader</h3>
+  <p>Basit ve işlevsel bir <strong>YouTube video indirme aracı</strong>.  
+  Kullanıcı dostu arayüzüyle video bağlantısını yapıştır, indir!</p>
+  <div class="tech-stack">
+    <span>HTML</span>
+    <span>CSS</span>
+    <span>JavaScript</span>
+    <span>API</span>
+  </div>
+</div>
+
+      <div class="card" onclick="window.open('https://sprxogzz.github.io/havadurum/', '_blank')">
+  <h3><i class="fa-solid fa-cloud-sun"></i> Hava Durumu Uygulaması</h3>
+  <p>Canlı hava durumu bilgilerini gösteren <strong>basit ve şık bir uygulama</strong>.</p>
+  <div class="tech-stack">
+    <span>HTML</span>
+    <span>CSS</span>
+    <span>JavaScript</span>
+    <span>API</span>
+  </div>
+</div>
+
+  </section>
+
+
+  <section id="blog" class="section">
+    <h2>Blog</h2>
+    <div class="cards">
+      <div class="card">
+  <h3><i class="fa-solid fa-pen-nib"></i> JavaScript ile API Kullanımı ve Entegrasyonu</h3>
+  <p>Bu yazıda bir <strong>API’den veri çekme ve web uygulamana entegre etme</strong> sürecini anlatıyorum. Örnek olarak hava durumu API’sini kullandım:</p>
+  <ul>
+    <li>API endpoint’ine <code>fetch()</code> ile istek göndermek</li>
+    <li>Gelen JSON verisini işlemek ve HTML’de göstermek</li>
+    <li>Hata kontrolü ve kullanıcı dostu mesajlar eklemek</li>
+  </ul>
+  <pre><code>
+fetch('https://api.openweathermap.org/data/2.5/weather?q=Istanbul&appid=YOUR_API_KEY&units=metric')
+  .then(response =&gt; response.json())
+  .then(data =&gt; {
+    document.getElementById('temp').textContent = data.main.temp + '°C';
+    document.getElementById('desc').textContent = data.weather[0].description;
+  })
+  .catch(error =&gt; console.error('API hatası:', error));
+  </code></pre>
+</div>
+      <div class="card" onclick="window.open('#', '_blank')">
+  <h3><i class="fa-solid fa-circle-down"></i> YouTube Video Downloader Projesi</h3>
+  <p>Bu projede bir <strong>YouTube video indirme aracı</strong> geliştirdim. Kullanıcı, video linkini giriyor ve seçtiği formata göre indirme başlıyor. Backend Python & Flask ile çalışıyor, frontend ise JS ile indirme durumunu takip ediyor.</p>
+  
+  <h4> Kod Örneği (Backend - Flask + yt_dlp):</h4>
+  <pre><code>
+def download_worker(url, format_type):
+    ydl_opts = {"outtmpl": "downloads/%(title)s.%(ext)s",
+                "progress_hooks": [progress_hook],
+                "noplaylist": True}
+    if format_type == "mp3":
+        ydl_opts["postprocessors"] = [{"key": "FFmpegExtractAudio", "preferredcodec": "mp3"}]
+
+    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+        ydl.download([url])
+  </code></pre>
+
+  <p>Frontend ise sürekli backend’e <code>/progress</code> isteği göndererek ilerlemeyi gösteriyor ve indirme tamamlanınca dosya kullanıcıya sunuluyor.</p>
+</div>
+
+  </section>
+
+  <!-- Hakkımda -->
+  <section id="about" class="section about">
+    <h2>Hakkımda</h2>
+    <p>BMerhaba, ben Oğuz. Web ve yazılım geliştirme projeleri üzerinde çalışıyor, öğrendiklerimi paylaşarak kendimi geliştiriyorum..</p>
+    <div class="socials" style="margin-top:20px;">
+  <a href="https://github.com/sprXogzz" target="_blank"><i class="fa-brands fa-github"></i></a>
+  <a href="https://www.linkedin.com/in/o%C4%9Fuzrahmet%C5%9Fevik/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+  <a href="https://x.com/Orahmetsevik" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+</div>
+
+  </section>
+
+  <!-- İletişim -->
+  <section id="contact" class="section">
+    <h2>İletişim</h2>
+    <p style="text-align:center;">Bana ulaşmak için: <a href="mailto:oguzsevik00@gmail.com">oguzsevik00@gmail.com</a></p>
+  </section>
+
+  <!-- sayfanın başına çıkan buton -->
+  <button id="scrollTopBtn" title="En üste git">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  
+  <footer>
+    <p>© 2025 Oğuz Rahmet</p>
+  </footer>
+
+  <script src="ogi.js"></script>
+</body>
+</html>
